@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "name": "plugin-sms",
+  "alias": "plugin-sms",
+  "builds": [
+    { "src": "/runtime/express-shim.js", "use": "@now/node" },
+    { "src": "/runtime/functions/*.js", "use": "@now/node" },
+    { "src": "/runtime/assets/*", "use": "@now/static" },
+    { "src": "/package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
+  ],
+  "routes": [
+    { "src": "/plugins.json", "dest": "/plugins.json" },
+    { "src": "/assets/(.*)", "dest": "/runtime/assets/$1" },
+    { "src": "/plugin-sms.js", "dest": "/plugin-sms.js" },
+    { "src": "/api/(.*)", "dest": "/runtime/express-shim.js" }
+  ],
+  "env": {
+    "TWILIO_ACCOUNT_SID": "@sms-twilio_account_sid",
+    "TWILIO_AUTH_TOKEN": "@sms-twilio_auth_token",
+    "FLEX_FLOW_SID": "@sms-flex_flow_sid",
+    "CHAT_SERVICE_SID": "@sms-chat_service_sid"
+  }
+}

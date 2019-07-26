@@ -1,0 +1,15 @@
+{
+  "name": "runtime-now-plugin-sms",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Runtime functions for plugin-sms",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "twilio-run --env --no-logs --live"
+  },
+  "dependencies": {
+    "morgan": "^1.9.1",
+    "axios": "*",
+    "twilio-run": "cwkendall/twilio-run"
+  }
+}

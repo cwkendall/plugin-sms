@@ -1,26 +1,42 @@
 {
   "name": "plugin-sms",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "prestart": "flex-check-start",
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject"
+    "bootstrap": "flex-check-start",
+    "postinstall": "npm run bootstrap",
+    "prestart": "npm run bootstrap",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --env=jsdom",
+    "eject": "craco eject",
+    "now-build": "npm run build",
+    "now-dev": "npm run start"
   },
   "devDependencies": {
-    "@twilio/flex-ui": "1.8.2",
-    "react-app-rewire-flex-plugin": "^1.5.0",
-    "react-app-rewired": "1.6.2"
+    "@twilio/flex-ui": "^1"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
     "@emotion/styled": "^10.0.4",
-    "flex-plugin": "1.1.1",
-    "react": "16.5.2",
-    "react-dom": "16.5.2",
-    "react-scripts": "1.1.5"
+    "@craco/craco": "^5.0.2",
+    "axios": "*",
+    "flex-plugin": "^2",
+    "craco-config-flex-plugin": "^2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^3.0.1"
   },
-  "config-overrides-path": "node_modules/react-app-rewire-flex-plugin"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
